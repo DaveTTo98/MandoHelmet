@@ -1,18 +1,39 @@
 <!DOCTYPE html>
-<html>
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
-      <a-marker type="pattern" url="assets/pattern-helmet.patt">
-        <a-entity
-          position="0 0 0"
-          scale="0.05 0.05 0.05"
-          gltf-model= "assets/scene.gltf"
-        ></a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR.js + A-Frame: Marcador Personalizado</title>
+
+  <!-- Importar A-Frame -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+  <!-- Importar AR.js para A-Frame -->
+  <script src="https://ar-js-org.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+
+  <!-- Escena A-Frame con AR.js -->
+  <a-scene embedded arjs>
+
+    <!-- Cargar activos -->
+    <a-assets>
+      <!-- Definir el modelo 3D -->
+      <a-asset-item id="my-model" src="assets/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <!-- Marcador personalizado AR.js (cambiar preset="hiro" por type="pattern") -->
+    <a-marker-camera type="pattern" url="assets/pattern-helmet.patt">
+      
+      <!-- Incluir el modelo 3D -->
+      <a-entity gltf-model="#my-model" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 45 0"></a-entity>
+
+    </a-marker-camera>
+
+    <!-- Cámara AR.js para seguir el marcador -->
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+</body>
 </html>
