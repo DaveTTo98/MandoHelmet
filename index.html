@@ -14,7 +14,7 @@
 <body style="margin: 0; overflow: hidden;">
 
   <!-- Escena A-Frame con AR.js -->
-  <a-scene embedded arjs>
+  <a-scene embedded arjs="sourceType: webcam;">
 
     <!-- Cargar activos -->
     <a-assets>
@@ -22,7 +22,7 @@
       <a-asset-item id="my-model" src="assets/scene.gltf"></a-asset-item>
     </a-assets>
 
-    <!-- Marcador personalizado AR.js (cambiar preset="hiro" por type="pattern") -->
+    <!-- Marcador personalizado AR.js -->
     <a-marker type="pattern" url="assets/pattern-helmet.patt">
       
       <!-- Incluir el modelo 3D -->
@@ -30,7 +30,7 @@
 
     </a-marker>
 
-    <!-- Cámara AR.js para seguir el marcador -->
+    <!-- Cámara AR.js -->
     <a-entity camera></a-entity>
 
   </a-scene>
